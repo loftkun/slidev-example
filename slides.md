@@ -1,298 +1,261 @@
 ---
-# try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
+theme: seriph # https://sli.dev/themes/gallery.html
+title: SlidevのMarkdown記法サンプル
+download: false
+lineNumbers: true
 background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
 class: 'text-center'
-# https://sli.dev/custom/highlighters.html
-highlighter: shiki
-# show line numbers in code blocks
-lineNumbers: false
-# some information about the slides, markdown enabled
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
 ---
 
-# Welcome to Slidev
+# SlidevのMarkdown記法<br>サンプル
 
-Presentation slides for developers
+公式サンプルにないtipsもあるよ
 
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
+---
+layout: intro
+---
 
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
+# 1章
 
+各章の冒頭スライドはこのように表示されるのですね。
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+---
+layout: intro
+class: 'text-center'
+---
+
+# 1章
+
+center表示もできます。
+
+---
+layout: cover
+background: https://source.unsplash.com/collection/94734566/1920x1080
+---
+
+# 1章
+
+seriphテーマで使えるcoverレイアウトです。このように背景画像も指定できます。
 
 ---
 
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+## 1.1. 見出しのレベルや書体の見栄えを見てみよう
 
 <br>
+
+# H1です
+
+## H2です
+
+### H3です
+
+#### H4です
+
+##### H5です
+
+これは本文です。H4から先は書体が変わりませんね。どうやら有効なのはH3まででしょうか。<br>
+でも、H3はかなり小さい文字になるのと灰色なのでほとんど使う機会はない印象。<br>
+
+使用するテーマを変えたり、テーマをカスタマイズすることで変更できそうです。<br>
+よいテーマを見つけた/作った方はぜひ教えて下さい。
+
+**これは本文です(太字)**
+
+~~これも本文です(取り消し)~~
+
+*じゃあ私も本文です(イタリック)*
+
+なお、&#045;&#045;&#045; を書くとページが区切られます。お試しくださいませ。
+
+---
+
+## 1.2. リスト
+
+リストの表示を見てみましょう。<br>
+なにげにGridレイアウト使って左右にコンテンツを配置していますのでその記法もご確認ください。
+
+<div class="grid grid-cols-[50%,50%] gap-4"><div>
+
+箇条書きリストだよ
+
+- AAAA
+  - aaaa
+  - aaaa
+- BBBB
+  - bbbb
+  - bbbb
+
+</div><div>
+
+番号付きリストだよ
+
+1. AAAA
+    1. aaaa
+    1. aaaa
+1. bbbb
+    1. BBBB
+    1. bbbb
+
+</div></div>
+
 <br>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+普通、Markdownで以下のように書くと [ ] 部分がチェックボックスとして描画されますけどSlidevではそうならないみたいですね。<br>
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
+- [ ] タスク1
+- [x] タスク2
+
+
+---
+
+## 1.3. テーブル
+
+テーブルがどのように表示されるか見てみましょう。
+
+突然のPython講義。
+
+[Python](https://www.python.org/)には、シーケンス型に属する型として以下があります。<br>
+
+|                                                            型                                                             |                                       概要                                       |
+| ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [リスト](https://docs.python.org/ja/3/library/stdtypes.html#lists)                                                        | データの並びを表現できます。                                                     |
+| [タプル](https://docs.python.org/ja/3/library/stdtypes.html#tuples)                                                       | リストと同じように使えますが、生成後は中身を変更できないことが保証されています。 |
+| [range](https://docs.python.org/ja/3/library/stdtypes.html#ranges)                                                        | 数の並びを表します。ループと組み合わせて使うことが多いです。                     |
+| [テキストシーケンス](https://docs.python.org/ja/3/library/stdtypes.html#text-sequence-type-str)                           | いわゆる文字列型です。                                                           |
+| [バイナリシーケンス](https://docs.python.org/ja/3/library/stdtypes.html#binary-sequence-types-bytes-bytearray-memoryview) | バイナリ(バイト列)を扱えます。                                                   |
+
+---
+
+## 1.4. 画像
+
+リロードするたびにランダムで画像が変わります。<br>
+Gridレイアウトをタイルのようにつかうのも良さそうですね。
+
+<div class="grid grid-cols-[33%,33%,33%] gap-4"><div>
+
+[Nature](https://unsplash.com/t/nature)
+
+![](https://source.unsplash.com/category/nature/320x240)
+
+</div><div>
+
+[Technology](https://unsplash.com/t/technology)
+
+![](https://source.unsplash.com/category/technology/320x240)
+
+</div><div>
+
+[Travel](https://unsplash.com/t/travel)
+
+![](https://source.unsplash.com/category/travel/320x240)
+
+</div></div>
+
+[Textures & Patterns](https://unsplash.com/t/textures-patterns)
+
+![](https://source.unsplash.com/category/textures-patterns/870x30)
+
+---
+
+## 1.5. アイコン
+
+
+[Icons | Slidev](https://sli.dev/guide/syntax.html#icons) に利用可能なアイコンの情報があります。
+
+[Tailwind CSS](https://tailwindcss.com/docs/animation) のクラスを設定するとAnimationなど面白い効果が狙えるかもしれません。
+
+<div class="grid grid-cols-[50%,50%] gap-4"><div>
+
+<center>
+
+<logos-chrome class="text-5xl m-12 animate-bounce"/>
+<logos-firefox class="text-5xl m-12 animate-bounce"/>
+<logos-microsoft-edge class="text-5xl m-12 animate-bounce"/>
+
+</center>
+
+</div><div class="content-center">
+
+<center>
+
+<twemoji-grinning-face-with-sweat class="text-5xl m-12 animate-pulse"/>
+<twemoji-party-popper class="text-5xl m-12 animate-ping"/>
+<twemoji-cat-with-tears-of-joy class="text-5xl m-12 animate-spin"/>
+
+</center>
+
+</div></div>
+
+---
+
+## 1.6. コード
 
 <style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-text-fill-color: transparent;
+.language-bash span.line { /* bashのコード */
+  margin-left: -40px; /* 左に40px移動して行番号を隠す(邪道) */
 }
 </style>
 
----
+行番号が表示されているのは `lineNumbers: true` のおかげです。<br>
+4行目以降がハイライトされているのは `{4-}` のおかげです。
 
-# Navigation
+<div class="grid grid-cols-[50%,50%] gap-4"><div>
+before
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+```python {4-}
+import os
+test_path = os.path.join("data", "data-01.txt")
 
-### Keyboard Shortcuts
-
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
-
-# Code
-
-Use code snippets and get the highlighting directly![^1]
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = {...user, ...update}  
-  saveUser(id, newUser)
-}
+f = open(test_path, "a", encoding="utf-8")
+f.write("this is new append line\n")
+f.close()
 ```
 
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
+</div><div>
+after
 
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
+```python {4-}
+import os
+test_path = os.path.join("data", "data-01.txt")
 
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
+with open(test_path, "a", encoding="utf-8") as f:
+    f.write("this is new append line\n")
 ```
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
+</div></div>
 
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
+以下は行番号を表示しないようにしてみました。<br>
+この章の&lt;style&gt;に指定している`language-bash span.line`をご参照ください。
 
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
+```bash
+$ ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           2  0.0  0.0      0     0 ?        S     7月20   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<    7月20   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<    7月20   0:00 [rcu_par_gp]
+root          12  0.0  0.0      0     0 ?        S     7月20   0:07 [migration/0]
 ```
 
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-
----
-class: px-20
 ---
 
-# Themes
+## 1.7. LaTeX
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+組版にも対応。数式をかっこよく書きたい場合に使えそうですね。
 
-<div grid="~ cols-2 gap-2" m="-t-2">
+$\sqrt{3x-1}+(1+x)^2$
 
-```yaml
----
-theme: default
----
-```
+これは中央に配置されるようです。
 
-```yaml
----
-theme: seriph
----
-```
+$$
+\begin{array}{c}
 
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
+\sin x = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} x^{2n+1}
 
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
+\end{array}
+$$
 
-</div>
+であるからして、これがこうなってこうじゃ。
 
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
-  </div>
-
-  <div 
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
 $$
 \begin{array}{c}
 
@@ -306,41 +269,132 @@ $$
 \end{array}
 $$
 
+このページは講義資料のような雰囲気がありますね。
+
+---
+
+## 1.8. Twitter
+
+<style>
+.language-markdown span.line { /* markdownのコード */
+  margin-left: -40px; /* 左に40px移動して行番号を隠す(邪道) */
+}
+</style>
+
+
+Vueのコンポーネントが使えるので簡単に埋め込めます。<br>
+画像ではないので文字コピーやリンククリックもできます。
+
+<div class="grid grid-cols-[40%,60%] gap-4"><div>
+
+<br><br><br>
+
+Markdownに書くのはこれだけでOK。
+
+
+```markdown
+<Tweet id="1423237009561186308"/>
+```
+
+</div><div>
+
+<Tweet id="1423237009561186308"/>
+
+</div></div>
+
+参考になったよという方はぜひTwitterのフォローといいねをポチッとしていただけると喜びます。
+
+---
+
+## 1.9. YouTube
+
+YouTube動画の埋め込みコード(HTML)を貼りつけてみました。動画が埋め込めています。<br>
+スライド上で動画を再生できるのは画面切り替えが不要なので嬉しいですね。
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OQmr5MLpF_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+
+YouTubeに限らず、各種サイトで埋め込みコードが用意されているものはスライドに埋め込める可能性があります。<br>
+ただし&lt;scrpit&gt;タグで埋め込むタイプのコンテンツは埋め込めないかもです。
+
+---
+
+## 1.10. Flowchart diagrams
+
+[Mermaid記法](https://sli.dev/guide/syntax.html#diagrams) による Jiro Flow
+
+```mermaid
+graph LR
+    A{add garlic?}
+    B[OK]
+    C[protocol error <br>]
+    D[as is]
+    E[garlic]
+    F[vegetable]
+    G[oil]
+    H[sauce]
+    A -->|YES or No| C
+    A --> D
+    A --> E
+    E --> F
+    A --> F
+    F --> G
+    A --> G
+    G --> H
+    A --> H
+    D --> B
+    E --> B
+    F --> B
+    G --> B
+    H --> B
+```
+
+---
+
+<style>
+.my-pie-chart div .mermaid svg {
+  width: 1600px; /* 幅を大きくすると図を拡大できる(が右に移動する) */
+  margin-left: -650px; /* 左に移動して丁度よい位置に調整する */
+}
+</style>
+
+## 1.11. Pie chart diagrams
+
+[Mermaid記法](https://sli.dev/guide/syntax.html#diagrams) による パイチャート
+
 <br>
 
-[Learn more](https://sli.dev/guide/syntax#latex)
+<div class="grid grid-cols-[45%,55%] gap-4 my-pie-chart"><div>
 
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-2 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.9}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
+```mermaid
+pie title 好きな初手は？
+    "７八銀" : 48
+    "８六歩" : 32
+    "１八香" : 16
+    "その他" : 4
 ```
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
+</div><div>
 
-</div>
+堂々の1位は７八銀となった。<br>
+△3四歩に対して▲7六歩と突けなくなる最悪の初手である。<br>
 
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+そこで▲６六歩と指す手がある。これに対して、<br>
+1) △同角には▲６八飛とパックマン戦法に切り替えていく
+2) △８四歩には▲７六歩と突いて通常の将棋に戻すこともできる
 
+といった指し方があり、最悪の初手と言われながらも意外と指せるかもしれない、味わい深い初手と言えよう。
+
+2位の初手８六歩は後手が８筋を伸ばすと飛車先の歩を切られることを免れない最悪の初手である。<br>
+しかしながら△７八金と上がっておくことにより1歩損するわけでもないためすぐに悪くなることはないだろう。後手側からこの手を咎め文字数
+
+</div></div>
 
 ---
-layout: center
-class: text-center
+layout: cover
 ---
 
-# Learn More
+# ご清聴ありがとうございました。
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+よいSlidevライフを！
