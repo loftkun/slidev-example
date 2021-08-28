@@ -128,32 +128,33 @@ seriphテーマで使えるcoverレイアウトです。このように背景画
 
 ## 1.4. 画像
 
-リロードするたびにランダムで画像が変わります。<br>
-Gridレイアウトをタイルのようにつかうのも良さそうですね。
+リロードするたびにランダムで画像が変わります。Gridレイアウトをタイルのようにつかうのも良さそうですね。
 
 <div class="grid grid-cols-[33%,33%,33%] gap-4"><div>
 
 [Nature](https://unsplash.com/t/nature)
 
-![](https://source.unsplash.com/category/nature/320x240)
+![](https://source.unsplash.com/category/nature/320x140)
 
 </div><div>
 
 [Technology](https://unsplash.com/t/technology)
 
-![](https://source.unsplash.com/category/technology/320x240)
+![](https://source.unsplash.com/category/technology/320x140)
 
 </div><div>
 
 [Travel](https://unsplash.com/t/travel)
 
-![](https://source.unsplash.com/category/travel/320x240)
+![](https://source.unsplash.com/category/travel/320x140)
 
 </div></div>
 
-[Textures & Patterns](https://unsplash.com/t/textures-patterns)
+画像などのassetsは`public`ディレクトリに格納すると良いです。SPAのドキュメントルートにコピーされます。
 
-![](https://source.unsplash.com/category/textures-patterns/870x30)
+
+![](/img/piano.jpg)
+
 
 ---
 
